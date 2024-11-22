@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class RaycastInteraction : MonoBehaviour
 {
     public Transform rayOrigin;
-    public float rayLenght;
+    public float rayLenght=3;
     public LayerMask layer;
     public GameObject uiGO;
     public Text hintText;
@@ -51,7 +51,7 @@ public class RaycastInteraction : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.blue;
         Gizmos.DrawLine(rayOrigin.position, rayOrigin.position + rayOrigin.forward * rayLenght);
     }
 
