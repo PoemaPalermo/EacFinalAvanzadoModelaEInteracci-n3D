@@ -7,11 +7,12 @@ public class SentryBotRaycastDetection : MonoBehaviour
     public Transform rayOrigin;
     public float rayLenght;
     public LayerMask layerMask;
+    SentryBotBehavior sentryBotBehavior;
 
     // Start is called before the first frame update
     void Awake()
     {
-
+        sentryBotBehavior=GetComponent<SentryBotBehavior>();
     }
 
     // Update is called once per frame
@@ -20,12 +21,15 @@ public class SentryBotRaycastDetection : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(rayOrigin.position, rayOrigin.forward, out hit, rayLenght, layerMask))
         {
-            
+            Debug.Log("funca");
+            sentryBotBehavior.targetTR = hit.collider.transform;
+            sentryBotBehavior.isPatrolling = false;
         }
     }
 
     void OnDrawGizmos()
     {
-        
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(rayOrigin.position, rayOrigin.position + rayOrigin.forward * rayLenght);
     }
 }
