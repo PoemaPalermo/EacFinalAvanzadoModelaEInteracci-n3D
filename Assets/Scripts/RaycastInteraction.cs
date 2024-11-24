@@ -15,7 +15,7 @@ public class RaycastInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        defaultHint = "Presione E para abrir ";
     }
 
     // Update is called once per frame
@@ -28,6 +28,7 @@ public class RaycastInteraction : MonoBehaviour
             interactable = hit.collider.GetComponent<InteractableObject>();
             if (interactable)
             {
+                ShowHintDuringTime(defaultHint + interactable.name);
             }
         }
         uiGO.SetActive(interactable);
