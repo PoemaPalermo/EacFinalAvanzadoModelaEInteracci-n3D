@@ -12,10 +12,12 @@ public class RaycastInteraction : MonoBehaviour
     public Text hintText;
     public float hintTime;
     public string defaultHint;
+    private bool isMessageShowing = false;
     // Start is called before the first frame update
     void Start()
     {
         defaultHint = "Presione E para abrir ";
+        hintText.text = defaultHint;
         uiGO.SetActive(false);
     }
 
@@ -29,7 +31,10 @@ public class RaycastInteraction : MonoBehaviour
             interactable = hit.collider.GetComponent<InteractableObject>();
             if (interactable)
             {
-                ShowHintDuringTime(defaultHint + interactable.name);
+                if (!isMessageShowing)
+                {
+                    StartCoroutine(ShowHintDuringTime(defaultHint + interactable.gameObject.transform.parent.gameObject.name));
+                }
             }
         }
         uiGO.SetActive(interactable);
@@ -39,11 +44,11 @@ public class RaycastInteraction : MonoBehaviour
             if (!interactable.activated)
             {
                 interactable.PlayObjectAnimation();
-                message = "Succesfully open!";
+                message = "Abriste " + interactable.gameObject.transform.parent.gameObject.name;
             }
             else
             {
-                message = "It's already open!";
+                message = interactable.gameObject.transform.parent.gameObject.name + " ya esta abierto";
             }
             StopAllCoroutines();
             StartCoroutine(ShowHintDuringTime(message));
@@ -59,6 +64,7 @@ public class RaycastInteraction : MonoBehaviour
 
     IEnumerator ShowHintDuringTime(string hintMessage)
     {
+        isMessageShowing = true;
         float time = 0;
         hintText.text = hintMessage;
         while (time < hintTime)
@@ -69,6 +75,7 @@ public class RaycastInteraction : MonoBehaviour
         }
         uiGO.SetActive(false);
         hintText.text = defaultHint;
+        isMessageShowing = false;
     }
 
 }
