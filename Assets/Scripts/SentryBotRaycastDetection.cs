@@ -25,11 +25,6 @@ public class SentryBotRaycastDetection : MonoBehaviour
             sentryBotBehavior.targetTR = hit.collider.transform;
             sentryBotBehavior.isPatrolling = false;
         }
-        else
-        {
-            sentryBotBehavior.isPatrolling = true;
-            sentryBotBehavior.targetTR = null;
-        }
     }
 
     void OnDrawGizmos()
