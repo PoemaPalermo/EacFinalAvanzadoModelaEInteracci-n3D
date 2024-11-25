@@ -16,6 +16,7 @@ public class RaycastInteraction : MonoBehaviour
     void Start()
     {
         defaultHint = "Presione E para abrir ";
+        uiGO.SetActive(false);
     }
 
     // Update is called once per frame
