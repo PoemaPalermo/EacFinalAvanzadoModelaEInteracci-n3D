@@ -10,8 +10,7 @@ public class SentryBotAnimationManager : MonoBehaviour
 
     void Awake()
     {
-        agent =GetComponentInParent<NavMeshAgent>();
-        anim = GetComponent<Animator>();        
+        agent =GetComponentInParent<NavMeshAgent>();     
     }
 
     void Update()

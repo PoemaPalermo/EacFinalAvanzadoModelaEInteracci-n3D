@@ -12,10 +12,12 @@ public class SentryBotBehavior : MonoBehaviour
     public Transform targetTR;
     public NavMeshAgent agent;
     public bool isArrived;
+    SentryBotAnimationManager sentryBotAnimator;
     // Start is called before the first frame update
     
     void Awake()
     {
+        sentryBotAnimator = GetComponent<SentryBotAnimationManager>();
         agent = GetComponent<NavMeshAgent>();
     }
     void Start()
@@ -27,6 +29,8 @@ public class SentryBotBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (targetTR)
         {
             agent.destination = targetTR.position;
