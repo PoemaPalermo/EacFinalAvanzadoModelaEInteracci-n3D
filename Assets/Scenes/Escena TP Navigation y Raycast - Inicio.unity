@@ -482,7 +482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayOrigin: {fileID: 585777227}
-  rayLenght: 3
+  rayLenght: 4
   layerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -4824,6 +4824,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412692376898368630, guid: 1a07368a60fe92540bc886469a263101,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412692376898368630, guid: 1a07368a60fe92540bc886469a263101,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1022.6295
       objectReference: {fileID: 0}
     - target: {fileID: 1727160916438091172, guid: 1a07368a60fe92540bc886469a263101,
         type: 3}
